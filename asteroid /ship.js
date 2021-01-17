@@ -18,7 +18,7 @@ function ship(){
       }
       
       this.pos.add(this.vel);
-      this.vel.mult(0,99);
+      this.vel.mult(0.99);
     }
     
     this.boost = function(){

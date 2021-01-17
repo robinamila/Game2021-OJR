@@ -32,13 +32,13 @@ function keyReleased(){
 }
 
 function keyPressed(){ //Funktion der gør at rumskibet drejer i forhold til hvilken knap der bliver trykket på
-  if (keyCode == RIGHT_ARROW){
+  if (keyCode == 68){
     ship.setRotation(0.1);
   } 
- else if (keyCode == LEFT_ARROW){
+ else if (keyCode == 65){
     ship.setRotation(-0.1);
   }
-  else if (keyCode == UP_ARROW) {
+  else if (keyCode == 87) {
     ship.boosting(true);
     
   }
