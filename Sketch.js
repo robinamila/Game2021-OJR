@@ -33,7 +33,7 @@ function draw(){
         for (var j = asteroids.length-1; j >= 0; j--){
         if (lasers[i].hits(asteroids[j])) {
          if (asteroids[j].r > 10){
-         var newAsteroids = [j].breakup();
+         var newAsteroids = asteroids[j].breakup();
          asteroids = asteroids.concat(newAsteroids);
          } 
          asteroids.splice(j, 1);
