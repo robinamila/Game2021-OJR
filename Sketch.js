@@ -5,7 +5,7 @@ var lasers = [];
 function setup() {
     createCanvas(windowWidth, windowHeight);
     ship = new Ship();
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 20; i++) {
     asteroids.push(new Asteroid());
 } 
 }
