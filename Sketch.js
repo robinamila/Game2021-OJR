@@ -68,4 +68,4 @@ function keyPressed () {
     }   else if (keyCode == 87) {
         ship.boosting(true); 
     }
-  }
+}
