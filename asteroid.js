@@ -1,3 +1,6 @@
+// var gamemodeEasy = [25,50];
+// var gamemodeMedium = [50,100];               Til senere hvor man eventuelt kan tilføje sværhedsgrader 
+// var gamemodeHard = sadsad
 
 function Asteroid(pos, r) {
     if (pos) {
@@ -8,7 +11,7 @@ function Asteroid(pos, r) {
     if (r) {
     this.r = r*0.5;
     } else {
-        this.r = random(15,50);
+        this.r = random(25,50);
     }
 
 
@@ -17,7 +20,7 @@ function Asteroid(pos, r) {
     this.total = floor (random(5,15))
     this.offset = [];
     for (var i = 0; i < this.total; i++) {
-        this.offset [i] = random(-this.r*0.5, this.r*0.5)
+        this.offset [i] = random(-this.r*0.3, this.r*0.3)
     }
 
     this.update = function () {
@@ -26,8 +29,8 @@ function Asteroid(pos, r) {
 
     this.render = function () {
         push ();
-        stroke (225);
-        noFill(); 
+        stroke (color = "white");
+        fill(color = "grey"); 
         translate(this.pos.x, this.pos.y);
         //ellipse(0, 0, this.r*2,); 
       
