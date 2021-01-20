@@ -59,7 +59,7 @@ function Asteroid(pos, r) {
         }
 
         if (this.pos.y > height +  this.r) {
-            this.pos.x = -this.r;   
+            this.pos.y = -this.r;   
         } else if (this.pos.y < -this.r) {
             this.pos.y = height + this.r;
         }
