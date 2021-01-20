@@ -14,14 +14,14 @@ function Ship() {
         if (this.isBoosting) {
             this.boost();
     }
-        this.pos.add( this.vel); 
+        this.pos.add(this.vel); 
         this.vel. mult(0.99)
     } 
 
     this.boost = function (){
          var force = p5.Vector.fromAngle(this.heading);
          force.mult(0.1);
-         this.vel.add(force );
+         this.vel.add(force);
     }
 
     this.hits = function(asteroid) {
@@ -41,6 +41,27 @@ function Ship() {
         stroke(255);
         triangle(-this.r, this.r, this.r, this.r, 0, -this.r);  
         pop ();
+    }
+
+    this.movement = function() {
+        if (isUp) {
+            push();
+            ship.boosting;
+            pop();
+        }
+        ship.boosting(isUp)
+
+        if (isRight) {
+            ship.setRotation (0.1);
+        }
+
+        if (isLeft) {
+            ship.setRotation (-0.1);
+        }
+        if (!isLeft && !isRight || isLeft && isRight) {
+            ship.setRotation (0);
+        }
+
     }
 
     this.edges = function() {

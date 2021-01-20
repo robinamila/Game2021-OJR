@@ -1,6 +1,10 @@
 var ship;
 var asteroids = [];
 var lasers = [];
+var isRight = false;
+var isLeft = false;
+var isUp = false; 
+
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -33,8 +37,8 @@ function draw(){
         for (var j = asteroids.length-1; j >= 0; j--){
         if (lasers[i].hits(asteroids[j])) {
          if (asteroids[j].r > 10){
-         var newAsteroids = asteroids[j].breakup();
-         asteroids = asteroids.concat(newAsteroids);
+         var newasteroids = asteroids[j].breakup();
+         asteroids = asteroids.concat(newasteroids);
          } 
          asteroids.splice(j, 1);
          lasers.splice(i, 1);
@@ -44,28 +48,42 @@ function draw(){
     }
 }
 
-    console.log(lasers.length);
 
         ship.render();
         ship.turn();
         ship.update(); 
         ship.edges();
+        ship.movement();
 }  
 
 
 function keyReleased (){
     ship.setRotation (0);
     ship.boosting(false);
+
+    if (keyCode == 68) {
+        isRight = false
+    } 
+    if (keyCode == 65) {
+        isLeft = false
+    }
+    if (keyCode == 87) {
+        isUp = false
+    }
+
  }
 
 function keyPressed () {
     if (keyCode == 32){
         lasers.push(new Laser(ship.pos, ship.heading));
-    }   else if (keyCode == 68) {
-        ship.setRotation (0.1);
-    }   else if (keyCode == 65) {
-        ship.setRotation (-0.1); 
-    }   else if (keyCode == 87) {
-        ship.boosting(true); 
+    }  
+    if (keyCode == 68) {
+        isRight = true
     }
-}
+    if (keyCode == 65) {
+        isLeft = true
+    }
+    if (keyCode == 87) {
+        isUp = true
+    }
+ }
