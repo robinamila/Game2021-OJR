@@ -71,8 +71,8 @@ function Ship() {
             this.pos.x = width + this.r;
         }
 
-        if (this.pos.y > height +  this.r) {
-            this.pos.x = -this.r;  w   
+        if (this.pos.y > height + this.r) {
+            this.pos.y = -this.r;   
         } else if (this.pos.y < -this.r) {
             this.pos.y = height + this.r;
         }
