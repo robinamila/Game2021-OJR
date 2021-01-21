@@ -74,8 +74,8 @@ function keyReleased (){
 
  }
 
-function keyPressed () {
-    if (keyCode == 32){
+function keyPressed () { //kode til at ske noget når man trykker på forskellige knapper
+    if (keyCode == 32){ 
         lasers.push(new Laser(ship.pos, ship.heading));
     }  
     if (keyCode == 68) {
@@ -90,4 +90,9 @@ function keyPressed () {
     if (keyCode == 80){
         window.location.href = "https://www.youtube.com/watch?v=iik25wqIuFo&ab_channel=Rickroll%2Cbutwithadifferentlink"
     }
+    // 32 = mellemrum
+    // 68 = D 
+    // 65 = A
+    // 87 = W
+    // 80 = P (rickRoll)
 }
