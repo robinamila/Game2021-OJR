@@ -56,7 +56,6 @@ function draw(){
         ship.movement();
 }  
 
-
 function keyReleased (){
     ship.setRotation (0);
     ship.boosting(false);
@@ -86,4 +85,4 @@ function keyPressed () {
     if (keyCode == 87) {
         isUp = true
     }
- }
+}

@@ -39,9 +39,19 @@ function Ship() {
         push ();
         translate(this.pos.x, this.pos.y);
         rotate(this.heading + PI/2);
-        fill(color = "pink");
-        stroke(255);  
-        triangle(-this.r, this.r, this.r, this.r, 0, -this.r);
+        fill(0);
+        stroke(255);
+        triangle(-this.r, this.r, this.r, this.r, 0, -this.r); 
+// kode nedenunder er for boost animation
+        stroke(255);
+        fill (color = "red")  
+        triangle(-this.r, this.r, this.r, this.r, 0, this.r*2);
+        noStroke(0);
+        fill (color = "orange")  
+        triangle(-this.r, this.r, this.r, this.r, 0, this.r*1.5);
+        noStroke();
+        fill (color = "red")  
+        triangle(-this.r, this.r, this.r, this.r, 0, this.r*1.25);
             } else {
 
         push ();
