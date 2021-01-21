@@ -7,6 +7,7 @@ var isLeft = false;
 var isUp = false; 
 
 
+
 function setup() { //kode der laver canvasset og bestemmer hvor mange asteroider der bliver tilføjet
     createCanvas(windowWidth, windowHeight);
     ship = new Ship();
@@ -85,5 +86,8 @@ function keyPressed () {
     }
     if (keyCode == 87) {
         isUp = true
+    }
+    if (keyCode == 80){
+        window.location.href = "https://www.youtube.com/watch?v=iik25wqIuFo&ab_channel=Rickroll%2Cbutwithadifferentlink"
     }
 }
