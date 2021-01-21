@@ -12,7 +12,7 @@ var isUp = false;
 function setup() { //kode der laver canvasset og bestemmer hvor mange asteroider der bliver tilføjet
     createCanvas(windowWidth, windowHeight);
     ship = new Ship();
-    for (var i = 0; i < 20; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
+    for (var i = 0; i < 0; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
     asteroids.push(new Asteroid());
 } 
 }
@@ -93,7 +93,10 @@ function keyPressed () { //kode til at ske noget når man trykker på forskellig
     if (keyCode == 80){
         window.location.href = "https://www.youtube.com/watch?v=iik25wqIuFo&ab_channel=Rickroll%2Cbutwithadifferentlink"
     }
-   
+   if (keyCode == 72){
+    window.location.href   
+
+   }
     // 32 = mellemrum
     // 68 = D 
     // 65 = A
