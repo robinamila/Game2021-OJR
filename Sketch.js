@@ -1,3 +1,4 @@
+//forskellige variabler
 var ship;
 var asteroids = [];
 var lasers = [];
@@ -6,10 +7,10 @@ var isLeft = false;
 var isUp = false; 
 
 
-function setup() {
+function setup() { //kode der laver canvasset og bestemmer hvor mange asteroider der bliver tilføjet
     createCanvas(windowWidth, windowHeight);
     ship = new Ship();
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 20; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
     asteroids.push(new Asteroid());
 } 
 }
@@ -18,7 +19,7 @@ function draw(){
     background(0);
     
 
-    for (var i = 0; i < asteroids.length; i++) {
+    for (var i = 0; i < asteroids.length; i++) { //kode der render asteroider
         if (ship.hits(asteroids[i])) {
             console.log("ups");
         }
@@ -28,13 +29,13 @@ function draw(){
 
     }
 
-    for (var i = lasers.length-1; i >=0; i--) {
+    for (var i = lasers.length-1; i >=0; i--) { //kode der render laser skud 
         lasers[i].render();
         lasers[i].update();
         if (lasers[i].offscreen()) {
             lasers.splice(i, 1);
         } else {
-        for (var j = asteroids.length-1; j >= 0; j--){
+        for (var j = asteroids.length-1; j >= 0; j--){ //kode der ødelægger asteroiderne 
         if (lasers[i].hits(asteroids[j])) {
          if (asteroids[j].r > 20){
          var newasteroids = asteroids[j].breakup();

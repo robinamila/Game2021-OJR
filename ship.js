@@ -35,7 +35,7 @@ function Ship() {
 
 
     this.render = function() {
-     if (isUp) {
+     if (isUp) { //når w bliver trykket ned bliver boost rendert
         push ();
         translate(this.pos.x, this.pos.y);
         rotate(this.heading + PI/2);
@@ -52,7 +52,7 @@ function Ship() {
         noStroke();
         fill (color = "red")  
         triangle(-this.r, this.r, this.r, this.r, 0, this.r*1.25);
-            } else {
+            } else { //"else" hvis ikke, så bliver det normale sorte skib rendert 
 
         push ();
         translate(this.pos.x, this.pos.y);
@@ -64,7 +64,7 @@ function Ship() {
 
     }
 
-    this.movement = function() {
+    this.movement = function() { //kode for movement
         if (isUp) {
             push();
             ship.boosting;
@@ -85,7 +85,7 @@ function Ship() {
 
     }
 
-    this.edges = function() {
+    this.edges = function() { //kode for at skibet bliver inde i skærmen
         if (this.pos.x > width +  this.r) {
             this.pos.x = -this.r;     
         } else if (this.pos.x < -this.r) {
