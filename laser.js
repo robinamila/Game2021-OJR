@@ -22,7 +22,7 @@ var colors = [ //array med forskellige farver til laser skud
 function Laser(spos, angle) {
 this.pos = createVector(spos.x, spos.y) ;
 this.vel = p5.Vector.fromAngle(angle);
-this.vel.mult(10);
+this.vel.mult(10); //kode der bestemmer hvor hurtig laser skudene bevæger sig 
 this.color = colors[floor(random(0, colors.length - 1))]; //den kode der gør at der bliver skiftet mellem farvene
 
 this.update = function(){
