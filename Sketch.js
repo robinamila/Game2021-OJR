@@ -1,4 +1,5 @@
 //forskellige variabler
+                        // HUSK AT TILFØJE SPAWN PROTECTION
 var ship;
 var asteroids = [];
 var lasers = [];
@@ -92,6 +93,7 @@ function keyPressed () { //kode til at ske noget når man trykker på forskellig
     if (keyCode == 80){
         window.location.href = "https://www.youtube.com/watch?v=iik25wqIuFo&ab_channel=Rickroll%2Cbutwithadifferentlink"
     }
+   
     // 32 = mellemrum
     // 68 = D 
     // 65 = A
