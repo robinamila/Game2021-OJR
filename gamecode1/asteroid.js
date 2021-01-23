@@ -1,8 +1,30 @@
 // var gamemodeEasy = [25,50];
 // var gamemodeMedium = [50,100];               Til senere hvor man eventuelt kan tilføje sværhedsgrader 
 // var gamemodeHard = sadsad
+var colors = [ //array med forskellige farver til laser skud
+    [248, 12, 18],
+    [238, 17, 0],
+    [255, 51, 17],
+    [255, 68, 34],
+    [255, 102, 68],
+    [255, 153, 51],
+    [254, 174, 45],
+    [204, 187, 51],
+    [208, 195, 16],
+    [170, 204, 34],
+    [105, 208, 37],
+    [34, 204, 170],
+    [18, 189, 185],
+    [17, 170, 187],
+    [68, 68, 221],
+    [51, 17, 187],
+    [59, 12, 189],
+    [68, 34, 153]
+  ]
 
 function Asteroid(pos, r) { //kode nedenunder laver asteroiderne 
+    this.color = colors[floor(random(0, colors.length - 1))]; //den kode der gør at der bliver skiftet mellem farvene
+
     if (pos) {
         this.pos = pos.copy();
     } else {
@@ -30,7 +52,8 @@ function Asteroid(pos, r) { //kode nedenunder laver asteroiderne
     this.render = function () {
         push ();
         stroke (color = "white");
-        fill(color = "grey"); 
+        fill(this.color[0], this.color[1], this.color[2]); // forskellige farver bliver anvendt
+ 
         translate(this.pos.x, this.pos.y);
         
       

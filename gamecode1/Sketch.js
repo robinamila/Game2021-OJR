@@ -12,7 +12,7 @@ var isUp = false;
 function setup() { //kode der laver canvasset og bestemmer hvor mange asteroider der bliver tilføjet
     createCanvas(windowWidth, windowHeight);
     ship = new Ship();
-    for (var i = 0; i < 0; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
+    for (var i = 0; i < 10; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
     asteroids.push(new Asteroid());
 } 
 }
@@ -64,7 +64,7 @@ function draw(){
 function keyReleased (){
     ship.setRotation (0);
     ship.boosting(false);
-
+    // WDA
     if (keyCode == 68) {
         isRight = false
     } 
@@ -73,11 +73,21 @@ function keyReleased (){
     }
     if (keyCode == 87) {
         isUp = false
+    } //Piltaster
+    if (keyCode == 39) {
+        isRight = false
+    } 
+    if (keyCode == 37) {
+        isLeft = false
+    }
+    if (keyCode == 38) {
+        isUp = false
     }
 
  }
 
 function keyPressed () { //kode til at ske noget når man trykker på forskellige knapper
+    //WDA
     if (keyCode == 32){ 
         lasers.push(new Laser(ship.pos, ship.heading));
     }  
@@ -88,6 +98,15 @@ function keyPressed () { //kode til at ske noget når man trykker på forskellig
         isLeft = true
     }
     if (keyCode == 87) {
+        isUp = true
+    } //Piltaster
+    if (keyCode == 39) {
+        isRight = true
+    }
+    if (keyCode == 37) {
+        isLeft = true
+    }
+    if (keyCode == 38) {
         isUp = true
     }
     if (keyCode == 80){
