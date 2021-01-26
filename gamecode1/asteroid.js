@@ -37,7 +37,6 @@ function Asteroid(pos, r) { //kode nedenunder laver asteroiderne
     }
 
 
-
     this.vel = p5.Vector.random2D();
     this.total = floor (random(5,15)) // kode der bestemmer hvor skarpe asteroiderne er 
     this.offset = [];

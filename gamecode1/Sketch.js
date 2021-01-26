@@ -6,31 +6,36 @@ var lasers = [];
 var isRight = false;
 var isLeft = false;
 var isUp = false; 
+var level = 0;
+var score = 0;
 
 
+
+function spawnAsteroid(){ // Denne funktion bruger vi senere til at lave flere asteroider
+    for (var i = 0; i < level + 10; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
+        asteroids.push(new Asteroid());
+    } 
+}
 
 function setup() { //kode der laver canvasset og bestemmer hvor mange asteroider der bliver tilføjet
     createCanvas(windowWidth, windowHeight);
     ship = new Ship();
-    for (var i = 0; i < 10; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
-    asteroids.push(new Asteroid());
-} 
+    spawnAsteroid();
 }
+
 
 function draw(){
     background(0);
-    
+
 
     for (var i = 0; i < asteroids.length; i++) { //kode der render asteroider
         if (ship.hits(asteroids[i])) {
-        //skal skrive en kode hvilken enten reloader siden eller tilføje liv
-        location.reload();
-               
-        } 
+           
+            location.reload();    
+        }
         asteroids[i].render();
         asteroids[i].update();
         asteroids[i].edges();
-
     }
 
     for (var i = lasers.length-1; i >=0; i--) { //kode der render laser skud 
@@ -39,16 +44,22 @@ function draw(){
         if (lasers[i].offscreen()) {
             lasers.splice(i, 1);
         } else {
-        for (var j = asteroids.length-1; j >= 0; j--){ //kode der ødelægger asteroiderne 
+    for (var j = asteroids.length-1; j >= 0; j--){ //kode der ødelægger asteroiderne 
         if (lasers[i].hits(asteroids[j])) {
-         if (asteroids[j].r > 20){
-         var newasteroids = asteroids[j].breakup();
-         asteroids = asteroids.concat(newasteroids);
-         } 
-         asteroids.splice(j, 1);
-         lasers.splice(i, 1);
-         break;
+        if (asteroids[j].r > 20){ 
+        var newasteroids = asteroids[j].breakup();
+        asteroids = asteroids.concat(newasteroids);
         }
+       
+        asteroids.splice(j, 1);
+        lasers.splice(i, 1);
+        if(asteroids.length == 0) {
+            level++;
+            spawnAsteroid();
+        } 
+        break;
+        }
+   
     }
     }
 }
@@ -59,6 +70,9 @@ function draw(){
         ship.update(); 
         ship.edges();
         ship.movement();
+
+
+
 }  
 
 function keyReleased (){
@@ -100,8 +114,10 @@ function keyPressed () { //kode til at ske noget når man trykker på forskellig
     if (keyCode == 87) {
         isUp = true
     } //Piltaster
-    if (keyCode == 39) {
-        isRight = true
+    if (keyCode == 219) {
+        for (var i = 0; i < 10; i++) { //Denne kode er den der bestemmer hvor mange asteroider der er 
+            asteroids.push(new Asteroid());
+        } 
     }
     if (keyCode == 37) {
         isLeft = true
