@@ -8,6 +8,7 @@ var isLeft = false;
 var isUp = false; 
 var level = 0;
 var score = 0;
+let a = 1
 
 
 
@@ -30,10 +31,10 @@ function draw(){
 
     for (var i = 0; i < asteroids.length; i++) { //kode der render asteroider
         if (ship.hits(asteroids[i])) {
-           
-            location.reload();    
+           location.reload();
         }
-        asteroids[i].render();
+
+      asteroids[i].render();
         asteroids[i].update();
         asteroids[i].edges();
     }
@@ -46,7 +47,7 @@ function draw(){
         } else {
     for (var j = asteroids.length-1; j >= 0; j--){ //kode der ødelægger asteroiderne 
         if (lasers[i].hits(asteroids[j])) {
-        if (asteroids[j].r > 20){ 
+        if (asteroids[j].r > 100){ 
         var newasteroids = asteroids[j].breakup();
         asteroids = asteroids.concat(newasteroids);
         }
@@ -70,6 +71,7 @@ function draw(){
         ship.update(); 
         ship.edges();
         ship.movement();
+       
 
 
 
