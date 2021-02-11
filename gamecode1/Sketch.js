@@ -47,7 +47,7 @@ function draw(){
         } else {
     for (var j = asteroids.length-1; j >= 0; j--){ //kode der ødelægger asteroiderne 
         if (lasers[i].hits(asteroids[j])) {
-        if (asteroids[j].r > 100){ 
+        if (asteroids[j].r > 25){ 
         var newasteroids = asteroids[j].breakup();
         asteroids = asteroids.concat(newasteroids);
         }
@@ -126,6 +126,9 @@ function keyPressed () { //kode til at ske noget når man trykker på forskellig
     }
     if (keyCode == 38) {
         isUp = true
+    }
+    if (keyCode == 39) {
+        isRight = true
     }
     if (keyCode == 80){
         window.location.href = "https://www.youtube.com/watch?v=iik25wqIuFo&ab_channel=Rickroll%2Cbutwithadifferentlink"
